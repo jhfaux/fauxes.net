@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+		<title>jQuery dropmenu</title>
+		
+		<link type="text/css" rel="stylesheet" href="css/dropmenu.css" />
+		<link type="text/css" rel="stylesheet" href="css/dropmenu_apple.css" />
+		
+		<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery.dropmenu-1.1.3.js"></script>
+		<script type="text/javascript" language="javascript">
+			$(document).ready(function() {
+				var dm = $('#kaalmenu > ul').clone();
+				$('#kaalmenu, #basismenu, #applemenu').append($('#kaalmenu > ul'));
+				$('.dropmenu a').click(function() {
+					alert($(this).text());
+					return false;
+				});
+
+				$('#kaalmenu > ul').removeClass('dropmenu');
+
+				$('#basismenu > ul').dropmenu({
+					effect	: 'slide',
+					nbsp	: true
+				});
+				
+				$('#applemenu > ul').dropmenu({
+					effect	: 'fade',
+					speed	: 750,
+					timeout	: 500
+				}).addClass('apple').removeClass('dropmenu');
+			});
+		</script>
+	</head>
+	<body>
+		<small>Deze pagina in het <a href="dropmenu_nl.html">Nederlands</a></small>
+		<h1>jQuery dropmenu plugin</h1>
+		<ul>
+			<li><a href="dropmenu.zip" target="_blank">Download</a></li>
+			<li><a href="#introductie">Introduction</a></li>
+			<li><a href="#voorbeelden">Examples</a></li>
+			<li><a href="#installeren">Installation</a></li>
+			<li><a href="#configuratie">Configuration</a></li>
+			<li><a href="#css_instellingen">CSS definitions</a></li>
+			<li><a href="#licentie">Licese</a></li>
+		</ul>
+		<br />
+		<br />
+		<br />
+		<h2 id="introductie">Introduction</h2>
+		<p>jQuery.dropmenu is a plugin which takes a standard HTML-list (UL-element) and turns it into a dropdown-menu with (in theory an infinite amount of) submenu's. It is easy to install and style with CSS.<br />
+			The plugin is designed to be quickly applied: Most of the configuration like heights, widths and distances are calculated automatically.</p>
+		<br />
+		<br />
+		<br />
+		<h2 id="voorbeelden">Examples</h2>
+		<div id="basismenu">
+			<p>An UL-list with sub-UL-lists with the dropmenu-plugin and some basic CSS definitions:</p>
+		</div>
+<pre>
+$('#basismenu &gt; ul').dropmenu({
+	effect	: 'slide',
+	nbsp	: true
+});
+</pre>
+		<p><a href="css/dropmenu.css" target="_blank">View css &raquo;</a></p>
+		<br />
+
+		<div id="applemenu">
+			<p>The same UL-list with the dropmenu-plugin and extensive CSS definitions to simulate a Mac look-&-feel:</p>
+		</div>
+<pre>
+$('#applemenu &gt; ul').dropmenu({
+	effect	: 'fade',
+	speed	: 750,
+	timeout	: 500
+});
+</pre>
+		<p><a href="css/dropmenu_apple.css" target="_blank">View css &raquo;</a></p>
+		<br />
+
+		<div id="kaalmenu">
+			<p>The same UL-list without the dropmenu-plugin and without CSS definitions:</p>
+			<ul class="dropmenu">
+				<li class="first"><span>TopItem 1</span>
+					<ul>
+						<li><a href="#">SubItem 1-1</a>
+							<ul>
+								<li><a href="#">SubItem 1-1-1</a>
+									<ul>
+										<li><a href="#">SubItem 1-1-1-1</a>
+											<ul>
+												<li><a href="#">SubItem 1-1-1-1-1</a></li>
+												<li><a href="#">SubItem 1-1-1-1-2</a></li>
+											</ul>
+										</li>
+										<li><a href="#">SubItem 1-1-1-2</a>
+											<ul>
+												<li><a href="#">SubItem 1-1-1-2-1</a></li>
+												<li><a href="#">SubItem 1-1-1-2-2</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="#">SubItem 1-1-2</a>
+									<ul>
+										<li><a href="#">SubItem 1-1-2-1</a>
+											<ul>
+												<li><a href="#">SubItem 1-1-2-1-1</a></li>
+												<li><a href="#">SubItem 1-1-2-1-2</a></li>
+											</ul>
+										</li>
+										<li><a href="#">SubItem 1-1-2-2</a>
+											<ul>
+												<li><a href="#">SubItem 1-1-2-2-1</a></li>
+												<li><a href="#">SubItem 1-1-2-2-2</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">SubItem 1-2</a>
+							<ul>
+								<li><a href="#">SubItem 1-2-1</a>
+									<ul>
+										<li><a href="#">SubItem 1-2-1-1</a></li>
+										<li><a href="#">SubItem 1-2-1-2</a></li>
+									</ul>
+								</li>
+								<li><a href="#">SubItem 1-2-2</a>
+									<ul>
+										<li><a href="#">SubItem 1-2-2-1</a></li>
+										<li><a href="#">SubItem 1-2-2-2</a></li>
+									</ul>
+								</li>
+								<li><a href="#">SubItem 1-2-3</a>
+									<ul>
+										<li><a href="#">SubItem 1-2-3-1</a></li>
+										<li><a href="#">SubItem 1-2-3-2</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">SubItem 1-3</a>
+							<ul>
+								<li><a href="#">SubItem 1-3-1</a></li>
+								<li><a href="#">SubItem 1-3-2</a></li>
+								<li><a href="#">SubItem 1-3-3</a></li>
+								<li><a href="#">SubItem 1-3-4</a></li>
+							</ul>
+						</li>
+						<li><span class="selected">Selected!</span></li>
+					</ul>
+				</li>
+				<li><a href="#">TopItem 2</a>
+					<ul>
+						<li><a href="#">SubItem 2-1</a></li>
+						<li><a href="#">SubItem 2-2</a>
+							<ul>
+								<li><a href="#">SubItem 2-2-1</a></li>
+								<li><a href="#">SubItem 2-2-2</a></li>
+								<li><a href="#">SubItem 2-2-3</a></li>
+								<li><a href="#">SubItem 2-2-4</a></li>
+								<li><a href="#">SubItem 2-2-5</a></li>
+								<li><a href="#">SubItem 2-2-6</a></li>
+							</ul>
+						</li>
+						<li><a href="#">SubItem 2-3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">TopItem 3</a>
+					<ul>
+						<li><a href="#">SubItem 3-1</a></li>
+						<li><a href="#">SubItem 3-2</a></li>
+					</ul>
+				</li>
+				<li class="last"><span class="selected">Selected!</span></li>
+			</ul>
+		</div>
+		
+		<br />
+		<br />
+		<br />
+		<h2 id="installeren">Installation</h2>
+		<p>Include the jQuery library, the dropmenu plugin and the dropmenu CSS inside the &lt;head&gt; tag of the page:</p>
+<pre>
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery.dropmenu.js&quot;&gt;&lt;/script&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;dropmenu.css&quot; /&gt;
+</pre>
+		<br />
+		<p>Create a list with sub-lists and put the text of every item in an a- of span-element.</p>
+<pre>
+&lt;ul id=&quot;foo&quot;&gt;
+	&lt;li&gt;&lt;span class=&quot;selected&quot;&gt;TopItem 1&lt;/span&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;span&gt;TopItem 2&lt;/span&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Subitem 2.1&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Subitem 2.2&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Subitem 2.3&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;/&quot;&gt;TopItem 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+		<br />
+		<p>Add the following JavaScript inside the &lt;head&gt; tag of the page:</p>
+<pre>
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function() {
+		$('#foo').dropmenu(
+			{	/*	Configuration goes here	*/	}
+		);
+	});
+&lt;/script&gt;
+</pre>	
+
+		<br />	
+		<br />
+		<br />
+		<h2 id="configuratie">Configuration</h2>
+		<p>A list of the options to set (showing default settings):</p>
+<pre>
+$.fn.dropmenu.defaults = {
+	effect			: &quot;none&quot;,		//	&quot;slide&quot;, &quot;fade&quot;, or &quot;none&quot;
+	speed			: &quot;normal&quot;,	//	&quot;normal&quot;, &quot;fast&quot;, &quot;slow&quot;, 100, 1000, etc
+	timeout			: 250,
+	nbsp			: false,
+	maxWidth		: 0
+}
+</pre>
+		<br />
+		<p><big><strong>effect</strong></big> <em>String</em><br />
+			The effect to animate the opening and closing of the submenu's.</p>
+		<p><big><strong>speed</strong></big> <em>Number</em><br />
+			The duration of the animation in milliseconds, can also be one of the by jQuery predefined speeds like &quot;fast&quot; or &quot;slow&quot;.</p>
+		<p><big><strong>timeout</strong></big> <em>Number</em><br />
+			The amount of milliseconds before a subitem will close after mouse-out.</p>
+		<p><big><strong>nbsp</strong></big> <em>Boolean</em><br />
+			If the text of the items need to stay on one line. This is desirable when the items do not have a predefined with and/or do have a predefined height.</p>
+		<p><big><strong>maxWidth</strong></big> <em>Number</em><br />
+			The maximum x-position of a sub-sub-menu, measured from the start of the menu. A sub-sub-menu will be placed on  the left side in stead of right side of its parent-item when its x-position would be greater than this point.<br />
+			If &quot;0&quot;, the remaining page-width is taken.</p>
+
+		<br />
+		<br />
+		<br />
+		<h2 id="css_instellingen">CSS definitions</h2>
+		<p>The plugin makes a distinction between 2 types of items:</p>
+		<ul>
+			<li>top-items (first level of the menu)</li>
+			<li>sub-items (all lower levels of the menu)</li>
+		</ul>
+		<br />
+		<p>All items can be clickable or non-clickable:</p>
+		<ul>
+			<li>clickable (a link): a-element</li>
+			<li>non-clickable (text): span-element</li>
+		</ul>
+		<br />
+		<p>In the CSS a distioncion between 4 stages is made for both types of items:</p>
+		<ul>
+			<li>normal item</li>
+			<li>normal item mouse-over</li>
+			<li>item of current page</li>
+			<li>item of current page mouse-over</li>
+		</ul>
+		<br />
+		<p>This results in the following CSS definitions:</p>
+<pre>
+a.toplevel 						/*	normal clickable top-item */
+span.toplevel					/*	normal non-clickable top-item */
+a.toplevel.hover				/*	normal clickable top-item mouse-over */
+span.toplevel.hover 			/*	normal non-clickable top-item mouse-over */
+span.toplevel.selected			/*	current page in top-item (non-clickable) */
+span.toplevel.selected.hover	/*	current page in top-item mouse-over (non-clickable) */
+
+a.sublevel						/*	normal clickable sub-item */
+span.sublevel					/*	normal non-clickable sub-item */
+a.sublevel.hover				/*	normal clickable sub-item mouse-over */
+span.sublevel.hover				/*	normal non-clickable sub-item mouse-over */
+span.sublevel.selected			/*	current page in sub-item (non-clickable) */
+span.sublevel.selected.hover	/*	current page in sub-item mouse-over (non-clickable) */
+</pre>
+		<p><strong>Please Note:</strong> The classes <em>toplevel</em>, <em>sublevel</em> and <em>hover</em> are added to the a- and span-elements by the plugin, the <em>selected</em>-class is not.</p>
+
+		<br />
+		<br />
+		<br />
+		<h2 id="licentie">License</h2>
+		<p>The jQuery.dropmenu plugin is licensed under the <a href="http://www.opensource.org/licenses/mit-license.php" target="blank">MIT</a> license.</p>
+	</body>
+</html>

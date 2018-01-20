@@ -1,0 +1,81 @@
+/*	---------------------------------------------------------
+ 
+ 	Essentials
+*/
+.dropmenu { 
+	padding:0 .5em 0 .5em;
+}
+
+/*	---------------------------------------------------------
+
+ 	Optional but recommended
+*/
+.dropmenu ul { 
+	min-width: 210px;
+} 
+
+/*	---------------------------------------------------------
+
+ 	Theming
+*/
+
+/* 		All items 			*/
+.dropmenu li a {
+	text-decoration: none;
+}
+.dropmenu li a, 
+.dropmenu li span { 
+	text-align: center;
+	font-weight: bold;
+	color: #B29447;
+	background-color: #4A251F;
+}
+
+/*		Topitems			*/
+/*			standard		*/
+.dropmenu .toplevel	{
+	background-color: #4A251F; 
+	padding: .25em .25em .25em .25em;
+	width: 202px;
+     	-moz-border-radius: 10px;
+    	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+    	border-radius: 10px;
+}
+
+/*			onmouseover		*/
+.dropmenu .toplevel.hover { 
+	background-color: #4A251F; 
+}
+
+/*			current page	*/
+.dropmenu .toplevel.selected { 
+	background-color: #4A251F; 
+}
+
+/*			current page onmouseover	*/
+.dropmenu .toplevel.hover.selected { 
+	background-color: #4A251F; 
+}
+
+/*		Subitems			*/
+/*			standard		*/
+.dropmenu .sublevel {
+	background-color: #4A251F;
+	border-bottom: 1px solid #888; 
+}
+
+/*			onmouseover		*/
+.dropmenu .sublevel.hover {
+	background-color: #000; 
+}
+
+/*			current page	*/
+.dropmenu .sublevel.selected { 
+	background-color: #4A251F; 
+}
+
+/*			current page onmouseover	*/
+.dropmenu .sublevel.hover.selected {	
+	background-color: #4A251F; 
+}
